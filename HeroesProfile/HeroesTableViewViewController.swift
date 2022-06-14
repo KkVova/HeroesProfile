@@ -31,7 +31,9 @@ class HeroesTableViewViewController: UITableViewController {
             }
             .store(in: &cancellables)
 
-        interactor.loadList()
+        DispatchQueue.global().async {
+            interactor.loadList()
+        }
     }
 
     required init?(coder: NSCoder) {
@@ -52,7 +54,8 @@ extension HeroesTableViewViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: HeroTableViewCell.id, for: indexPath) as? HeroTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: HeroTableViewCell.id,
+                                                       for: indexPath) as? HeroTableViewCell else {
             fatalError("Unexpected row \(indexPath.row) in section \(indexPath.section)")
         }
 
@@ -65,7 +68,7 @@ extension HeroesTableViewViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let controller = SomeViewController()
+        let controller = TalentsViewController()
         controller.title = heroes[indexPath.row].name
         navigationController?.pushViewController(controller, animated: true)
     }

@@ -14,13 +14,30 @@
 		4407AB09284BABFE004F41AF /* HeroesTableViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4407AB08284BABFE004F41AF /* HeroesTableViewViewController.swift */; };
 		4452E924284E82480051D2FF /* HeroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4452E923284E82480051D2FF /* HeroTableViewCell.swift */; };
 		4475421F285781FA009B8F54 /* HeroManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4475421E285781FA009B8F54 /* HeroManager.swift */; };
-		44C8D8272853BA1300D5CE2C /* SomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C8D8262853BA1300D5CE2C /* SomeViewController.swift */; };
+		44892B1D285D618C00C1AC38 /* HeroListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44892B1C285D618C00C1AC38 /* HeroListInteractorTests.swift */; };
+		44892B1F285D61AE00C1AC38 /* HeroesManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44892B1E285D61AE00C1AC38 /* HeroesManagerMock.swift */; };
+		44C8D8272853BA1300D5CE2C /* TalentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C8D8262853BA1300D5CE2C /* TalentsViewController.swift */; };
 		44C8D82A2853DD2C00D5CE2C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 44C8D8292853DD2C00D5CE2C /* Alamofire */; };
 		44C8D82D2853DD5400D5CE2C /* HeroListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C8D82C2853DD5400D5CE2C /* HeroListInteractor.swift */; };
 		44C8D8302853E7CC00D5CE2C /* HeroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C8D82F2853E7CC00D5CE2C /* HeroModel.swift */; };
 		44C8D8332853F70500D5CE2C /* HeroEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C8D8322853F70500D5CE2C /* HeroEntity.swift */; };
 		44C8D8362853F79300D5CE2C /* RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C8D8352853F79300D5CE2C /* RequestService.swift */; };
+		44F9D9E42859098B0039C4AA /* HeroesManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9D9E32859098B0039C4AA /* HeroesManagerTests.swift */; };
+		44F9D9EC28590C370039C4AA /* RequestServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9D9EB28590C370039C4AA /* RequestServiceMock.swift */; };
+		44F9D9F028590CE90039C4AA /* XCTestCase+ExpectationWaiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9D9EF28590CE90039C4AA /* XCTestCase+ExpectationWaiter.swift */; };
+		44F9D9F4285918690039C4AA /* Bundle+Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9D9F3285918690039C4AA /* Bundle+Decode.swift */; };
+		44F9D9FC28591BBE0039C4AA /* testHeroesList.json in Resources */ = {isa = PBXBuildFile; fileRef = 44F9D9FB28591BBE0039C4AA /* testHeroesList.json */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		44F9D9E52859098B0039C4AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4407AAE9284BA3BE004F41AF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4407AAF0284BA3BE004F41AF;
+			remoteInfo = HeroesProfile;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		4407AAF1284BA3BE004F41AF /* HeroesProfile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeroesProfile.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -32,11 +49,19 @@
 		4407AB08284BABFE004F41AF /* HeroesTableViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesTableViewViewController.swift; sourceTree = "<group>"; };
 		4452E923284E82480051D2FF /* HeroTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroTableViewCell.swift; sourceTree = "<group>"; };
 		4475421E285781FA009B8F54 /* HeroManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroManager.swift; sourceTree = "<group>"; };
-		44C8D8262853BA1300D5CE2C /* SomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeViewController.swift; sourceTree = "<group>"; };
+		44892B1C285D618C00C1AC38 /* HeroListInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroListInteractorTests.swift; sourceTree = "<group>"; };
+		44892B1E285D61AE00C1AC38 /* HeroesManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesManagerMock.swift; sourceTree = "<group>"; };
+		44C8D8262853BA1300D5CE2C /* TalentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalentsViewController.swift; sourceTree = "<group>"; };
 		44C8D82C2853DD5400D5CE2C /* HeroListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroListInteractor.swift; sourceTree = "<group>"; };
 		44C8D82F2853E7CC00D5CE2C /* HeroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroModel.swift; sourceTree = "<group>"; };
 		44C8D8322853F70500D5CE2C /* HeroEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroEntity.swift; sourceTree = "<group>"; };
 		44C8D8352853F79300D5CE2C /* RequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestService.swift; sourceTree = "<group>"; };
+		44F9D9E12859098B0039C4AA /* HeroesProfileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeroesProfileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		44F9D9E32859098B0039C4AA /* HeroesManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesManagerTests.swift; sourceTree = "<group>"; };
+		44F9D9EB28590C370039C4AA /* RequestServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestServiceMock.swift; sourceTree = "<group>"; };
+		44F9D9EF28590CE90039C4AA /* XCTestCase+ExpectationWaiter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+ExpectationWaiter.swift"; sourceTree = "<group>"; };
+		44F9D9F3285918690039C4AA /* Bundle+Decode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Decode.swift"; sourceTree = "<group>"; };
+		44F9D9FB28591BBE0039C4AA /* testHeroesList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = testHeroesList.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +73,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		44F9D9DE2859098B0039C4AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -55,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				4407AAF3284BA3BE004F41AF /* HeroesProfile */,
+				44F9D9E22859098B0039C4AA /* HeroesProfileTests */,
 				4407AAF2284BA3BE004F41AF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				4407AAF1284BA3BE004F41AF /* HeroesProfile.app */,
+				44F9D9E12859098B0039C4AA /* HeroesProfileTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,10 +104,12 @@
 		4407AAF3284BA3BE004F41AF /* HeroesProfile */ = {
 			isa = PBXGroup;
 			children = (
+				44F9D9FE285935B20039C4AA /* Extensions */,
 				44C8D8312853F6F600D5CE2C /* Entities */,
 				44C8D82E2853E7B800D5CE2C /* Models */,
 				44C8D8342853F78400D5CE2C /* Services */,
 				44C8D82B2853DD3400D5CE2C /* Interactors */,
+				44F9D9DC2859087F0039C4AA /* UIComponents */,
 				4407AB0A284BAD38004F41AF /* UIControllers */,
 				4407AAF4284BA3BE004F41AF /* AppDelegate.swift */,
 				4407AAF6284BA3BE004F41AF /* SceneDelegate.swift */,
@@ -88,8 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				4407AB08284BABFE004F41AF /* HeroesTableViewViewController.swift */,
-				4452E923284E82480051D2FF /* HeroTableViewCell.swift */,
-				44C8D8262853BA1300D5CE2C /* SomeViewController.swift */,
+				44C8D8262853BA1300D5CE2C /* TalentsViewController.swift */,
 			);
 			name = UIControllers;
 			sourceTree = "<group>";
@@ -127,6 +162,51 @@
 			name = Services;
 			sourceTree = "<group>";
 		};
+		44F9D9DC2859087F0039C4AA /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				4452E923284E82480051D2FF /* HeroTableViewCell.swift */,
+			);
+			name = UIComponents;
+			sourceTree = "<group>";
+		};
+		44F9D9E22859098B0039C4AA /* HeroesProfileTests */ = {
+			isa = PBXGroup;
+			children = (
+				44F9D9EE28590CD90039C4AA /* Extensions */,
+				44F9D9EA28590C240039C4AA /* Mocks */,
+				44F9D9FB28591BBE0039C4AA /* testHeroesList.json */,
+				44F9D9E32859098B0039C4AA /* HeroesManagerTests.swift */,
+				44892B1C285D618C00C1AC38 /* HeroListInteractorTests.swift */,
+			);
+			path = HeroesProfileTests;
+			sourceTree = "<group>";
+		};
+		44F9D9EA28590C240039C4AA /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				44F9D9EB28590C370039C4AA /* RequestServiceMock.swift */,
+				44892B1E285D61AE00C1AC38 /* HeroesManagerMock.swift */,
+			);
+			name = Mocks;
+			sourceTree = "<group>";
+		};
+		44F9D9EE28590CD90039C4AA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				44F9D9EF28590CE90039C4AA /* XCTestCase+ExpectationWaiter.swift */,
+				44F9D9F3285918690039C4AA /* Bundle+Decode.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		44F9D9FE285935B20039C4AA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -151,6 +231,24 @@
 			productReference = 4407AAF1284BA3BE004F41AF /* HeroesProfile.app */;
 			productType = "com.apple.product-type.application";
 		};
+		44F9D9E02859098B0039C4AA /* HeroesProfileTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 44F9D9E72859098B0039C4AA /* Build configuration list for PBXNativeTarget "HeroesProfileTests" */;
+			buildPhases = (
+				44F9D9DD2859098B0039C4AA /* Sources */,
+				44F9D9DE2859098B0039C4AA /* Frameworks */,
+				44F9D9DF2859098B0039C4AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				44F9D9E62859098B0039C4AA /* PBXTargetDependency */,
+			);
+			name = HeroesProfileTests;
+			productName = HeroesProfileTests;
+			productReference = 44F9D9E12859098B0039C4AA /* HeroesProfileTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -163,6 +261,10 @@
 				TargetAttributes = {
 					4407AAF0284BA3BE004F41AF = {
 						CreatedOnToolsVersion = 13.3;
+					};
+					44F9D9E02859098B0039C4AA = {
+						CreatedOnToolsVersion = 13.3;
+						TestTargetID = 4407AAF0284BA3BE004F41AF;
 					};
 				};
 			};
@@ -183,6 +285,7 @@
 			projectRoot = "";
 			targets = (
 				4407AAF0284BA3BE004F41AF /* HeroesProfile */,
+				44F9D9E02859098B0039C4AA /* HeroesProfileTests */,
 			);
 		};
 /* End PBXProject section */
@@ -194,6 +297,14 @@
 			files = (
 				4407AB01284BA3C1004F41AF /* LaunchScreen.storyboard in Resources */,
 				4407AAFE284BA3C1004F41AF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44F9D9DF2859098B0039C4AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44F9D9FC28591BBE0039C4AA /* testHeroesList.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,7 +338,7 @@
 			files = (
 				4407AB09284BABFE004F41AF /* HeroesTableViewViewController.swift in Sources */,
 				44C8D8362853F79300D5CE2C /* RequestService.swift in Sources */,
-				44C8D8272853BA1300D5CE2C /* SomeViewController.swift in Sources */,
+				44C8D8272853BA1300D5CE2C /* TalentsViewController.swift in Sources */,
 				44C8D82D2853DD5400D5CE2C /* HeroListInteractor.swift in Sources */,
 				4407AAF5284BA3BE004F41AF /* AppDelegate.swift in Sources */,
 				44C8D8302853E7CC00D5CE2C /* HeroModel.swift in Sources */,
@@ -238,7 +349,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		44F9D9DD2859098B0039C4AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44F9D9E42859098B0039C4AA /* HeroesManagerTests.swift in Sources */,
+				44892B1F285D61AE00C1AC38 /* HeroesManagerMock.swift in Sources */,
+				44892B1D285D618C00C1AC38 /* HeroListInteractorTests.swift in Sources */,
+				44F9D9EC28590C370039C4AA /* RequestServiceMock.swift in Sources */,
+				44F9D9F028590CE90039C4AA /* XCTestCase+ExpectationWaiter.swift in Sources */,
+				44F9D9F4285918690039C4AA /* Bundle+Decode.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		44F9D9E62859098B0039C4AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4407AAF0284BA3BE004F41AF /* HeroesProfile */;
+			targetProxy = 44F9D9E52859098B0039C4AA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4407AAFF284BA3C1004F41AF /* LaunchScreen.storyboard */ = {
@@ -302,7 +434,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -356,7 +488,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -422,6 +554,42 @@
 			};
 			name = Release;
 		};
+		44F9D9E82859098B0039C4AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TRCKC8GFT7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.rutoken.demo.HeroesProfileTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HeroesProfile.app/HeroesProfile";
+			};
+			name = Debug;
+		};
+		44F9D9E92859098B0039C4AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TRCKC8GFT7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.rutoken.demo.HeroesProfileTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HeroesProfile.app/HeroesProfile";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -439,6 +607,15 @@
 			buildConfigurations = (
 				4407AB06284BA3C1004F41AF /* Debug */,
 				4407AB07284BA3C1004F41AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		44F9D9E72859098B0039C4AA /* Build configuration list for PBXNativeTarget "HeroesProfileTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				44F9D9E82859098B0039C4AA /* Debug */,
+				44F9D9E92859098B0039C4AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -22,9 +22,9 @@ class HeroListInteractor: HeroListInteractorProtocol {
     private let heroesPublisher = PassthroughSubject<HeroModel, Never>()
     private var cancellables = Set<AnyCancellable>()
 
-    private var heroManager: HeroManagerProtocol
+    private var heroManager: HeroesManagerProtocol
 
-    init(heroManager: HeroManagerProtocol) {
+    init(heroManager: HeroesManagerProtocol) {
         self.heroManager = heroManager
 
         heroManager.heroes

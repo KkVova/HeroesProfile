@@ -12,11 +12,11 @@ import UIKit
 class HeroModel: Identifiable {
     let name: String
     let shortName: String
-    var icon: UIImage
+    var icon: Data
 
-    init(name: String, shortName: String, icon: UIImage) {
+    init(name: String, shortName: String, iconData: Data) {
         self.name = name
         self.shortName = shortName
-        self.icon = icon
+        self.icon = iconData
     }
 }

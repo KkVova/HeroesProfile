@@ -1,5 +1,5 @@
 //
-//  SomeViewController.swift
+//  TalentsViewController.swift
 //  HOTSProfiles
 //
 //  Created by Vova Badyaev on 10.06.2022.
@@ -8,8 +8,7 @@
 import UIKit
 
 
-class SomeViewController: UIViewController {
-
+class TalentsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 

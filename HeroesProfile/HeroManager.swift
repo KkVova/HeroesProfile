@@ -10,13 +10,18 @@ import Foundation
 import UIKit
 
 
-protocol HeroManagerProtocol {
+protocol HeroesManagerProtocol {
     var heroes: AnyPublisher<HeroModel, Never> { get }
 
     func loadHeroesList()
 }
 
-class HeroesManager: HeroManagerProtocol {
+class HeroesManager: HeroesManagerProtocol {
+    enum HeroesApiUrls: String {
+        case heroesListUrl = "https://api.heroesprofile.com/openApi/Heroes"
+        case heroIconUrl = "https://www.heroesprofile.com/includes/images/heroes/"
+    }
+
     var heroes: AnyPublisher<HeroModel, Never> {
         self.heroPublisher.share().eraseToAnyPublisher()
     }
@@ -26,39 +31,37 @@ class HeroesManager: HeroManagerProtocol {
 
     private let requestService: RequestServiceProtocol
 
+
     init(service: RequestServiceProtocol) {
         self.requestService = service
     }
 
     func loadHeroesList() {
-        requestService.request(forUrl: "https://api.heroesprofile.com/openApi/Heroes")
-            .receive(on: DispatchQueue.global())
-            .sink(receiveCompletion: { comp in
-                if case .failure(let error) = comp {
-                    print("ERROR!!!!! \(error.localizedDescription)")
-                }
-            }, receiveValue: { [unowned self] data in
-                guard let list = try? JSONDecoder().decode(HeroesList.self, from: data) else {
-                    print("ERROR!!!!! Cant convert image")
+        requestService.request(forUrl: HeroesApiUrls.heroesListUrl.rawValue) { [unowned self] result in
+            switch result {
+            case .success(let data):
+                guard let list = try? JSONDecoder().decode([String: Hero].self, from: data) else {
+                    print("Failed to decode some data.")
                     return
                 }
-                for hero in list.heroes {
-                    requestService.request(forUrl: "https://www.heroesprofile.com/includes/images/heroes/\(hero.shortName).png")
-                        .receive(on: DispatchQueue.global())
-                        .sink(receiveCompletion: { comp in
-                            if case .failure(let error) = comp {
-                                print("ERROR!!!!! \(error.localizedDescription)")
-                            }
-                        }, receiveValue: { [unowned self] data in
-                            guard let image = UIImage(data: data) else {
-                                print("ERROR!!!!! Cant convert image")
-                                return
-                            }
-                            heroPublisher.send(HeroModel(name: hero.name, shortName: hero.shortName, icon: image))
-                        })
-                        .store(in: &cancellables)
+                for hero in list.values {
+                    DispatchQueue.global().async {
+                        self.requestService.request(
+                            forUrl:
+                                "\(HeroesApiUrls.heroIconUrl.rawValue)\(hero.shortName).png") { [unowned self] result in
+                                    switch result {
+                                    case .success(let data):
+                                        heroPublisher.send(HeroModel(name: hero.name, shortName: hero.shortName,
+                                                                     iconData: data))
+                                    case .failure(let error):
+                                        print(error.localizedDescription)
+                                    }
+                                }
+                    }
                 }
-            })
-            .store(in: &cancellables)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }

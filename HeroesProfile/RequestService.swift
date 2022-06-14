@@ -10,6 +10,11 @@ import Combine
 import Foundation
 
 
+enum ResponseError: Error {
+    case emptyResponse
+    case unknownError
+}
+
 struct NetworkError: Error {
     let initialError: AFError
     let backendError: BackendError?
@@ -21,23 +26,24 @@ struct BackendError: Codable, Error {
 }
 
 protocol RequestServiceProtocol {
-    func request(forUrl url: String) -> AnyPublisher<Data, Error>
+    func request(forUrl url: String, completionHandler: @escaping (Result<Data, Error>) -> Void)
 }
 
 class RequestService: RequestServiceProtocol {
-    private var cancellables = Set<AnyCancellable>()
-
-    func request(forUrl url: String) -> AnyPublisher<Data, Error> {
-        return Future<Data, Error> { promise in
-            AF.request(url, method: .get).response { response in
-                switch response.result {
-                case .success(let responseData):
-                    return promise(.success(responseData!))
-                case .failure(let error):
-                    let backendError = response.data.flatMap { try? JSONDecoder().decode(BackendError.self, from: $0)}
-                    return promise(.failure(NetworkError(initialError: error, backendError: backendError)))
+    func request(forUrl url: String, completionHandler: @escaping (Result<Data, Error>) -> Void) {
+        AF.request(url, method: .get).response { response in
+            switch response.result {
+            case .success(let responseData):
+                guard let data = responseData else {
+                    completionHandler(.failure(ResponseError.emptyResponse))
+                    return
                 }
+                completionHandler(.success(data))
+            case .failure(let error):
+                let backendError = response.data.flatMap { try? JSONDecoder().decode(BackendError.self, from: $0)}
+                completionHandler(.failure(NetworkError(initialError: error, backendError: backendError)))
             }
-        }.eraseToAnyPublisher()
+        }
     }
 }
+

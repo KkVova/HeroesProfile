@@ -28,14 +28,6 @@ class Hero: Decodable, Identifiable {
         case id, name, short_name, new_role, translations
     }
 
-    init(name: String, role: RoleType) {
-        self.id = Int.random(in: 1..<91)
-        self.name = name
-        self.shortName = name
-        self.role = role
-        self.translations = []
-    }
-
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = try container.decode(Int.self, forKey: .id)
@@ -46,33 +38,5 @@ class Hero: Decodable, Identifiable {
         }
         self.role = role
         translations = try container.decode([String].self, forKey: .translations)
-    }
-}
-
-struct HeroesList: Decodable {
-    var heroes: [Hero]
-
-    private struct DynamicCodingKeys: CodingKey {
-        var stringValue: String
-        init?(stringValue: String) {
-            self.stringValue = stringValue
-        }
-
-        var intValue: Int?
-        init?(intValue: Int) {
-            return nil
-        }
-    }
-
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: DynamicCodingKeys.self)
-        var tempArray = [Hero]()
-
-        for key in container.allKeys {
-            let decodedObject = try container.decode(Hero.self, forKey: DynamicCodingKeys(stringValue: key.stringValue)!)
-            tempArray.append(decodedObject)
-        }
-
-        heroes = tempArray
     }
 }

@@ -14,10 +14,10 @@ class HeroTableViewCell: UITableViewCell {
     var heroModel: HeroModel? {
         didSet {
             guard let name = heroModel?.name,
-                  let icon = heroModel?.icon else { return }
+                  let iconData = heroModel?.icon else { return }
 
             nameLabel.text = name
-            heroIconView.image = icon
+            heroIconView.image = UIImage(data: iconData) ?? UIImage(systemName: "person.crop.circle.fill")
         }
     }
 
