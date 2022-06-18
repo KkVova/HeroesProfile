@@ -1,6 +1,6 @@
 //
 //  HeroTableViewCell.swift
-//  HOTSProfiles
+//  HeroesProfile
 //
 //  Created by Vova Badyaev on 06.06.2022.
 //

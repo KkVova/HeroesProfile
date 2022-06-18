@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  HOTSProfiles
+//  HeroesProfile
 //
 //  Created by Vova Badyaev on 04.06.2022.
 //
