@@ -11,6 +11,11 @@ import XCTest
 
 
 class HeroesManagerTests: XCTestCase {
+    enum HeroesManagerError: Error {
+        case listLoading
+        case imageLoading
+    }
+
     var manager: HeroesManager!
     var service: RequestServiceMock!
     var jsonData: Data!
@@ -23,10 +28,8 @@ class HeroesManagerTests: XCTestCase {
         heroesList = Bundle(for: type(of: self)).decode([String: Hero].self, from: "testHeroesList.json")
     }
 
-    func testHeroesManager_LoadHeroes() throws {
-        let heroesPublisher = manager.heroes
-            .collect(heroesList.count)
-            .first()
+    func testHeroesManager_LoadHeroes() {
+        let expectation = XCTestExpectation(description: "Waiting for HeroModels receiving.")
 
         service.testCompletionHandler = { [unowned self] url, handler in
             switch url {
@@ -37,56 +40,74 @@ class HeroesManagerTests: XCTestCase {
             }
         }
 
-        let result = try awaitPublisherUnwrapped(heroesPublisher) {
-            manager.loadHeroesList()
+        manager.loadHeroesList { error in
+            if error != nil {
+                return
+            }
+            expectation.fulfill()
         }
 
-        for heroName in heroesList.keys {
-            XCTAssert(result.contains(where: { $0.name == heroName }))
+        wait(for: [expectation], timeout: 1)
+        for heroName in manager.heroesList {
+            XCTAssert(heroesList.contains(where: { $0.value.shortName == heroName.shortName }))
         }
+        XCTAssertEqual(heroesList.count, manager.heroesList.count)
     }
 
-    func testHeroesManager_DataImage() throws {
-        let heroesPublisher = manager.heroes
-            .collect(heroesList.count)
-            .first()
+    func testHeroesManager_ErrorOnListLoading() {
+        let expectation = XCTestExpectation(description: "Waiting for error receiving.")
 
-        guard let checkHero = heroesList.first else {
-            XCTFail("Emptry test heroes list")
-            return
+        service.testCompletionHandler = { url, handler in
+            switch url {
+            case HeroesManager.HeroesApiUrls.heroesListUrl.rawValue:
+                handler(.failure(HeroesManagerError.listLoading))
+            default:
+                handler(.failure(HeroesManagerError.imageLoading))
+            }
         }
 
-        guard let testIconData = UIImage(systemName: "person.fill")?.pngData() else {
-            XCTFail("Can't extract test image data")
-            return
+        manager.loadHeroesList { error in
+            if let err = error {
+                switch err {
+                case HeroesManagerError.listLoading:
+                    expectation.fulfill()
+                default:
+                    break
+                }
+            }
         }
 
+        wait(for: [expectation], timeout: 1)
+    }
+
+    func testHeroesManager_ErrorOnImageLoading() {
+        var expectations: [XCTestExpectation] = []
+
+        for i in 0..<heroesList.count {
+            expectations.append(XCTestExpectation(description: "Waiting for HeroModel №\(i) receiving."))
+        }
         service.testCompletionHandler = { [unowned self] url, handler in
             switch url {
             case HeroesManager.HeroesApiUrls.heroesListUrl.rawValue:
                 handler(.success(jsonData))
-            case "\(HeroesManager.HeroesApiUrls.heroIconUrl.rawValue)\(checkHero.value.shortName).png":
-                handler(.success(testIconData))
             default:
-                handler(.success(Data()))
+                handler(.failure(HeroesManagerError.imageLoading))
             }
         }
 
-        let result = try awaitPublisherUnwrapped(heroesPublisher) {
-            manager.loadHeroesList()
+        manager.loadHeroesList { error in
+            if let err = error {
+                switch err {
+                case HeroesManagerError.imageLoading:
+                    expectations.popLast()?.fulfill()
+                case HeroesManagerError.listLoading:
+                    return
+                default:
+                    break
+                }
+            }
         }
 
-        guard let hero = result.filter({ $0.shortName == checkHero.value.shortName }).first else {
-            XCTFail("Missing expected hero in result list")
-            return
-        }
-        print("\(hero.shortName)")
-        XCTAssert(hero.icon == testIconData)
-
-        let anotherHeroes = result.filter({ $0.shortName != checkHero.value.shortName })
-        XCTAssertEqual(anotherHeroes.count, 2)
-        for heroName in anotherHeroes {
-            XCTAssert(heroName.icon == Data())
-        }
+        wait(for: expectations, timeout: 1)
     }
 }

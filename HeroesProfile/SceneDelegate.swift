@@ -26,8 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let service = RequestService()
         let heroManager = HeroesManager(service: service)
-        let interactor = HeroListInteractor(heroManager: heroManager)
-        let controller = HeroesTableViewViewController(interactor: interactor)
+        let controller = HeroesTableViewViewController(manager: heroManager)
         window?.rootViewController = UINavigationController(rootViewController: controller)
         window?.makeKeyAndVisible()
     }

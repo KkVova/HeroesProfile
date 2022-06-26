@@ -9,7 +9,6 @@ import Combine
 import Foundation
 
 @testable import HeroesProfile
-import UIKit
 
 
 class RequestServiceMock: RequestServiceProtocol {

@@ -5,34 +5,27 @@
 //  Created by Vova Badyaev on 04.06.2022.
 //
 
-import Combine
 import UIKit
 
 
 class HeroesTableViewViewController: UITableViewController {
-    private let interactor: HeroListInteractorProtocol
-    private var heroes: [HeroModel] = []
+    private let manager: HeroesManagerProtocol
 
-    private var cancellables = Set<AnyCancellable>()
-
-    init(interactor: HeroListInteractorProtocol) {
-        self.interactor = interactor
+    init(manager: HeroesManagerProtocol) {
+        self.manager = manager
 
         super.init(style: .plain)
 
-        interactor.heroes
-            .receive(on: DispatchQueue.global())
-            .sink { [unowned self] hero in
+
+        DispatchQueue.global().async {
+            manager.loadHeroesList { error in
                 DispatchQueue.main.async {
-                    self.heroes.append(hero)
-                    self.heroes.sort(by: { $0.shortName < $1.shortName })
+                    if let err = error {
+                        print(err.localizedDescription)
+                    }
                     self.tableView.reloadData()
                 }
             }
-            .store(in: &cancellables)
-
-        DispatchQueue.global().async {
-            interactor.loadList()
         }
     }
 
@@ -50,7 +43,7 @@ class HeroesTableViewViewController: UITableViewController {
 
 extension HeroesTableViewViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return heroes.count
+        return manager.heroesList.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -59,7 +52,7 @@ extension HeroesTableViewViewController {
             fatalError("Unexpected row \(indexPath.row) in section \(indexPath.section)")
         }
 
-        cell.heroModel = heroes[indexPath.row]
+        cell.heroModel = manager.heroesList[indexPath.row]
         return cell
     }
 
@@ -68,8 +61,8 @@ extension HeroesTableViewViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let controller = TalentsViewController()
-        controller.title = heroes[indexPath.row].name
+        let controller = TalentsViewController(manager: manager, forHero: manager.heroesList[indexPath.row])
+        controller.title = manager.heroesList[indexPath.row].name
         navigationController?.pushViewController(controller, animated: true)
     }
 }

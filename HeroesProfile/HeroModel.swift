@@ -6,10 +6,9 @@
 //
 
 import Foundation
-import UIKit
 
 
-class HeroModel: Identifiable {
+class HeroModel: Identifiable, Hashable {
     let name: String
     let shortName: String
     var icon: Data
@@ -18,5 +17,13 @@ class HeroModel: Identifiable {
         self.name = name
         self.shortName = shortName
         self.icon = iconData
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+    }
+
+    static func == (lhs: HeroModel, rhs: HeroModel) -> Bool {
+        return lhs.name == rhs.name
     }
 }

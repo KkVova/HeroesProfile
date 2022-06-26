@@ -24,7 +24,6 @@
 		44C8D8362853F79300D5CE2C /* RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C8D8352853F79300D5CE2C /* RequestService.swift */; };
 		44F9D9E42859098B0039C4AA /* HeroesManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9D9E32859098B0039C4AA /* HeroesManagerTests.swift */; };
 		44F9D9EC28590C370039C4AA /* RequestServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9D9EB28590C370039C4AA /* RequestServiceMock.swift */; };
-		44F9D9F028590CE90039C4AA /* XCTestCase+ExpectationWaiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9D9EF28590CE90039C4AA /* XCTestCase+ExpectationWaiter.swift */; };
 		44F9D9F4285918690039C4AA /* Bundle+Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9D9F3285918690039C4AA /* Bundle+Decode.swift */; };
 		44F9D9FC28591BBE0039C4AA /* testHeroesList.json in Resources */ = {isa = PBXBuildFile; fileRef = 44F9D9FB28591BBE0039C4AA /* testHeroesList.json */; };
 /* End PBXBuildFile section */
@@ -59,7 +58,6 @@
 		44F9D9E12859098B0039C4AA /* HeroesProfileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeroesProfileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		44F9D9E32859098B0039C4AA /* HeroesManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesManagerTests.swift; sourceTree = "<group>"; };
 		44F9D9EB28590C370039C4AA /* RequestServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestServiceMock.swift; sourceTree = "<group>"; };
-		44F9D9EF28590CE90039C4AA /* XCTestCase+ExpectationWaiter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+ExpectationWaiter.swift"; sourceTree = "<group>"; };
 		44F9D9F3285918690039C4AA /* Bundle+Decode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Decode.swift"; sourceTree = "<group>"; };
 		44F9D9FB28591BBE0039C4AA /* testHeroesList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = testHeroesList.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,7 +106,6 @@
 				44C8D8312853F6F600D5CE2C /* Entities */,
 				44C8D82E2853E7B800D5CE2C /* Models */,
 				44C8D8342853F78400D5CE2C /* Services */,
-				44C8D82B2853DD3400D5CE2C /* Interactors */,
 				44F9D9DC2859087F0039C4AA /* UIComponents */,
 				4407AB0A284BAD38004F41AF /* UIControllers */,
 				4407AAF4284BA3BE004F41AF /* AppDelegate.swift */,
@@ -127,14 +124,6 @@
 				44C8D8262853BA1300D5CE2C /* TalentsViewController.swift */,
 			);
 			name = UIControllers;
-			sourceTree = "<group>";
-		};
-		44C8D82B2853DD3400D5CE2C /* Interactors */ = {
-			isa = PBXGroup;
-			children = (
-				44C8D82C2853DD5400D5CE2C /* HeroListInteractor.swift */,
-			);
-			name = Interactors;
 			sourceTree = "<group>";
 		};
 		44C8D82E2853E7B800D5CE2C /* Models */ = {
@@ -194,7 +183,6 @@
 		44F9D9EE28590CD90039C4AA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				44F9D9EF28590CE90039C4AA /* XCTestCase+ExpectationWaiter.swift */,
 				44F9D9F3285918690039C4AA /* Bundle+Decode.swift */,
 			);
 			name = Extensions;
@@ -357,7 +345,6 @@
 				44892B1F285D61AE00C1AC38 /* HeroesManagerMock.swift in Sources */,
 				44892B1D285D618C00C1AC38 /* HeroListInteractorTests.swift in Sources */,
 				44F9D9EC28590C370039C4AA /* RequestServiceMock.swift in Sources */,
-				44F9D9F028590CE90039C4AA /* XCTestCase+ExpectationWaiter.swift in Sources */,
 				44F9D9F4285918690039C4AA /* Bundle+Decode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
