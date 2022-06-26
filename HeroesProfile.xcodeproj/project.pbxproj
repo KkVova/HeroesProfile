@@ -14,11 +14,10 @@
 		4407AB09284BABFE004F41AF /* HeroesTableViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4407AB08284BABFE004F41AF /* HeroesTableViewViewController.swift */; };
 		4452E924284E82480051D2FF /* HeroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4452E923284E82480051D2FF /* HeroTableViewCell.swift */; };
 		4475421F285781FA009B8F54 /* HeroManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4475421E285781FA009B8F54 /* HeroManager.swift */; };
-		44892B1D285D618C00C1AC38 /* HeroListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44892B1C285D618C00C1AC38 /* HeroListInteractorTests.swift */; };
-		44892B1F285D61AE00C1AC38 /* HeroesManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44892B1E285D61AE00C1AC38 /* HeroesManagerMock.swift */; };
+		44892B21285E3F5900C1AC38 /* TalentEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44892B20285E3F5900C1AC38 /* TalentEntity.swift */; };
+		44892B23285F4AF600C1AC38 /* TalentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44892B22285F4AF600C1AC38 /* TalentModel.swift */; };
 		44C8D8272853BA1300D5CE2C /* TalentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C8D8262853BA1300D5CE2C /* TalentsViewController.swift */; };
 		44C8D82A2853DD2C00D5CE2C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 44C8D8292853DD2C00D5CE2C /* Alamofire */; };
-		44C8D82D2853DD5400D5CE2C /* HeroListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C8D82C2853DD5400D5CE2C /* HeroListInteractor.swift */; };
 		44C8D8302853E7CC00D5CE2C /* HeroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C8D82F2853E7CC00D5CE2C /* HeroModel.swift */; };
 		44C8D8332853F70500D5CE2C /* HeroEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C8D8322853F70500D5CE2C /* HeroEntity.swift */; };
 		44C8D8362853F79300D5CE2C /* RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C8D8352853F79300D5CE2C /* RequestService.swift */; };
@@ -48,10 +47,9 @@
 		4407AB08284BABFE004F41AF /* HeroesTableViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesTableViewViewController.swift; sourceTree = "<group>"; };
 		4452E923284E82480051D2FF /* HeroTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroTableViewCell.swift; sourceTree = "<group>"; };
 		4475421E285781FA009B8F54 /* HeroManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroManager.swift; sourceTree = "<group>"; };
-		44892B1C285D618C00C1AC38 /* HeroListInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroListInteractorTests.swift; sourceTree = "<group>"; };
-		44892B1E285D61AE00C1AC38 /* HeroesManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesManagerMock.swift; sourceTree = "<group>"; };
+		44892B20285E3F5900C1AC38 /* TalentEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalentEntity.swift; sourceTree = "<group>"; };
+		44892B22285F4AF600C1AC38 /* TalentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalentModel.swift; sourceTree = "<group>"; };
 		44C8D8262853BA1300D5CE2C /* TalentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalentsViewController.swift; sourceTree = "<group>"; };
-		44C8D82C2853DD5400D5CE2C /* HeroListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroListInteractor.swift; sourceTree = "<group>"; };
 		44C8D82F2853E7CC00D5CE2C /* HeroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroModel.swift; sourceTree = "<group>"; };
 		44C8D8322853F70500D5CE2C /* HeroEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroEntity.swift; sourceTree = "<group>"; };
 		44C8D8352853F79300D5CE2C /* RequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestService.swift; sourceTree = "<group>"; };
@@ -130,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				44C8D82F2853E7CC00D5CE2C /* HeroModel.swift */,
+				44892B22285F4AF600C1AC38 /* TalentModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -138,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				44C8D8322853F70500D5CE2C /* HeroEntity.swift */,
+				44892B20285E3F5900C1AC38 /* TalentEntity.swift */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -166,7 +166,6 @@
 				44F9D9EA28590C240039C4AA /* Mocks */,
 				44F9D9FB28591BBE0039C4AA /* testHeroesList.json */,
 				44F9D9E32859098B0039C4AA /* HeroesManagerTests.swift */,
-				44892B1C285D618C00C1AC38 /* HeroListInteractorTests.swift */,
 			);
 			path = HeroesProfileTests;
 			sourceTree = "<group>";
@@ -175,7 +174,6 @@
 			isa = PBXGroup;
 			children = (
 				44F9D9EB28590C370039C4AA /* RequestServiceMock.swift */,
-				44892B1E285D61AE00C1AC38 /* HeroesManagerMock.swift */,
 			);
 			name = Mocks;
 			sourceTree = "<group>";
@@ -325,9 +323,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4407AB09284BABFE004F41AF /* HeroesTableViewViewController.swift in Sources */,
+				44892B21285E3F5900C1AC38 /* TalentEntity.swift in Sources */,
 				44C8D8362853F79300D5CE2C /* RequestService.swift in Sources */,
 				44C8D8272853BA1300D5CE2C /* TalentsViewController.swift in Sources */,
-				44C8D82D2853DD5400D5CE2C /* HeroListInteractor.swift in Sources */,
+				44892B23285F4AF600C1AC38 /* TalentModel.swift in Sources */,
 				4407AAF5284BA3BE004F41AF /* AppDelegate.swift in Sources */,
 				44C8D8302853E7CC00D5CE2C /* HeroModel.swift in Sources */,
 				4475421F285781FA009B8F54 /* HeroManager.swift in Sources */,
@@ -342,8 +341,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				44F9D9E42859098B0039C4AA /* HeroesManagerTests.swift in Sources */,
-				44892B1F285D61AE00C1AC38 /* HeroesManagerMock.swift in Sources */,
-				44892B1D285D618C00C1AC38 /* HeroListInteractorTests.swift in Sources */,
 				44F9D9EC28590C370039C4AA /* RequestServiceMock.swift in Sources */,
 				44F9D9F4285918690039C4AA /* Bundle+Decode.swift in Sources */,
 			);
